@@ -12,11 +12,11 @@ html
         form(action=`/update-cobj/${book.id}`, method="POST").form-wrapper 
             div
                 label Name
-                input(type="text", value=book.properties.name)
+                input(type="text", value=book.properties.name, name="name")
             div
                 lable ISBN
-                input(type="text", value=book.properties.isbn)
+                input(type="text", value=book.properties.isbn, name="isbn")
             div
                 lable Publisher
-                input(type="text", value=book.properties.publisher)
+                input(type="text", value=book.properties.publisher, name="publisher")
             input(type="submit", value="Save")
