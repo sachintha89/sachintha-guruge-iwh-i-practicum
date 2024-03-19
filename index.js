@@ -69,6 +69,28 @@ app.post('/update-cobj/:id', async (req, res) => {
         res.render('error');
     }
 })
+
+
+app.get('/create-cobj', (req, res) => {
+    res.render('create', { title: 'Create Custom Object Form | Integrating With Hubspot I Praticum' });
+})
+
+app.post('/create-cobj', async (req, res) => {
+    const apiUrl = `https://api.hubapi.com/crm/v3/objects/${BOOKS_TYPE}`;
+    const headers = {
+        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+        'Content-Type': 'application/json',
+    }
+
+    try {
+        const response = await axios.post(apiUrl, { properties: req.body }, { headers });
+        res.redirect('/');
+    } catch (err) {
+        console.error(err);
+        res.render('error');
+    }
+})
+
 /** 
 * * This is sample code to give you a reference for how you should structure your calls. 
 
