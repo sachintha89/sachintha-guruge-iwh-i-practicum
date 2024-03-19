@@ -13,8 +13,25 @@ const BOOKS_TYPE = '2-26094705';
 
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 
-// * Code for Route 1 goes here
+app.get('/', async (req, res) => {
+    const apiUrl = `https://api.hubapi.com/crm/v3/objects/${BOOKS_TYPE}`;
+    const headers = {
+        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+        'Content-Type': 'application/json'
+    };
+    const params = {
+        properties: 'name,isbn,publisher',
+    }
 
+    try {
+        const response = await axios.get(apiUrl, { headers, params });
+        const books = response.data.results;
+        res.render('books', { title: 'List of books', books });
+    } catch (err) {
+        console.error(err);
+        res.render('error');
+    }
+})
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
 
 app.get('/update-cobj/:id', async (req, res) => {
