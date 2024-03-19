@@ -1,0 +1,22 @@
+//- ** This is a sample of a pug template and how it uses the data passed to it from index.js.
+
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body    
+        h1 Update Book
+        a(href="/" ) Back to home
+        form(action=`/update-cobj/${book.id}`, method="POST").form-wrapper 
+            div
+                label Name
+                input(type="text", value=book.properties.name, name="name")
+            div
+                lable ISBN
+                input(type="text", value=book.properties.isbn, name="isbn")
+            div
+                lable Publisher
+                input(type="text", value=book.properties.publisher, name="publisher")
+            input(type="submit", value="Save")

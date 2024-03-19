@@ -1,0 +1,25 @@
+doctype html
+html 
+    head 
+        title=title
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body 
+        h1 Books
+        a(href="/create-cobj") Add/Update Book
+
+        table 
+            thead 
+                tr
+                    th Name 
+                    th ISBN 
+                    th Publisher
+                    th Action
+            tbody 
+                each book in books 
+                    tr 
+                        td #{book.properties.name}
+                        td #{book.properties.isbn}
+                        td #{book.properties.publisher}
+                        td 
+                            a(href=`/update-cobj/${book.id}`) Edit

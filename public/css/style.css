@@ -10,6 +10,28 @@ h1 {
     margin: 1rem;
 }
 
+a{
+    margin: 1rem;
+}
+
+table{
+    margin: 1rem;
+}
+
+table, td, th{
+    border : 1px solid;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 1rem;
+    text-align: left;
+}
+
+th{
+    font-weight: bold;
+}
+
 .cards {
     display: flex;
     align-items: center;

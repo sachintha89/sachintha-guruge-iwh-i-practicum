@@ -1,0 +1,22 @@
+//- ** This is a sample of a pug template and how it uses the data passed to it from index.js.
+
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body    
+        h1 Create Book
+        a(href="/" ) Back to home
+        form(action="/create-cobj", method="POST").form-wrapper 
+            div
+                label Name
+                input(type="text"  name="name")
+            div
+                lable ISBN
+                input(type="text"  name="isbn")
+            div
+                lable Publisher
+                input(type="text"  name="publisher")
+            input(type="submit", value="Save")
